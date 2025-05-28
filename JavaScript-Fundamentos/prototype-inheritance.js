@@ -29,4 +29,23 @@ const perro1 = new Perro("Bobby","Perro","Boxer");
 console.log(perro1);
 perro1.emitirSonido();
 perro1.correr();
+console.log(`+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`);
+
+//Para agregar un nuevo metodo al prototypo se tiene que agregar o en la clase Perro o Animal porque son las que tienen prototypo, no se puede agregar en la instancia perro1 porque al ser ser un prototipo el no genera un prototipo porque ya lo es 
+
+//Esta seria la forma erronea
+perro1.nuevoMetodo = function(){
+    console.log("Este es un metodo");
+
+};
+
+//Forma correcta
+Perro.prototype.leventarPatita = function(){
+    console.log("El perro levanto la patita");
+};
+
+console.log(perro1);
+perro1.emitirSonido();
+perro1.correr();
+perro1.leventarPatita();
 
